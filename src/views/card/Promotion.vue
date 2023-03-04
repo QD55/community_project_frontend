@@ -4,29 +4,37 @@
             <span>🥂 推广</span>
         </div>
         <div>
-            body
+            <p v-for="(item, index) in list" :key="index" class="block">
+                <a :href="item.link" target="_blank">{{ item.title }}</a>
+            </p>
         </div>
+
     </el-card>
 </template>
   
 <script>
 
-import { getBillboard } from '@/api/billboard'
+import { getList } from '@/api/promotion'
 
 export default {
     name: 'Promotion',
     data() {
         return {
-
+            list: []
         }
     },
 
     created() {
-
+        this.fetchList()
     },
 
     methods: {
-
+        fetchList() {
+            getList().then((response) => {
+                const { data } = response
+                this.list = data
+            })
+        }
     }
 }
 </script>
