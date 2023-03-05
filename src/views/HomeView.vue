@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="box"> 🔔  {{ billboard.content }} </div>
+    <div class="box"> 🔔 {{ billboard.content }} </div>
     <div class="columns">
       <div class="column is-three-quarters">
         <TopicList></TopicList>
@@ -20,7 +20,7 @@ import PostList from '@/views/post/index'
 
 export default {
   name: 'HomeView',
-  components: {CardBar, TopicList: PostList},
+  components: { CardBar, TopicList: PostList },
   data() {
     return {
       billboard: {
@@ -32,17 +32,17 @@ export default {
   created() {
     this.fetchBillboard()
   },
-  
+
   methods: {
-    async fetchBillboard(){
+    async fetchBillboard() {
       getBillboard().then((value) => {
         const { data } = value
         this.billboard = data
       }
-      ) 
+      )
     }
   }
 
- 
+
 }
 </script>
