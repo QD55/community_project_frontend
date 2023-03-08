@@ -11,15 +11,12 @@
                         <el-form-item label="账号" prop="name">
                             <el-input v-model="ruleForm.name"></el-input>
                         </el-form-item>
-
                         <el-form-item label="密码" prop="pass">
                             <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
                         </el-form-item>
-
                         <el-form-item label="记住" prop="delivery">
                             <el-switch v-model="ruleForm.rememberMe"></el-switch>
                         </el-form-item>
-
                         <el-form-item>
                             <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
                             <el-button @click="resetForm('ruleForm')">重置</el-button>
@@ -30,7 +27,6 @@
         </div>
     </div>
 </template>
-  
 <script>
 export default {
     name: "Login",
@@ -78,6 +74,9 @@ export default {
                                 type: "success",
                                 duration: 2000,
                             });
+                            
+                            this.$store.dispatch("user/getInfo")
+
                             setTimeout(() => {
                                 this.loading = false;
                                 this.$router.push({ path: this.redirect || "/" });
@@ -97,5 +96,4 @@ export default {
     },
 };
 </script>
-  
 <style scoped></style>

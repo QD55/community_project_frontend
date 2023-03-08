@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import user from '@/store/modules/user'
+import user from './modules/user'
 import getters from './getters'
 
 Vue.use(Vuex)
