@@ -7,9 +7,22 @@ import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 // ElementUI
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
-import '@/permission'
+import 'element-ui/lib/theme-chalk/index.css'
+import '@/assets/app.css'
+import 'font-awesome/css/font-awesome.min.css'
 
+import '@/permission'
+import relativeTime from 'dayjs/plugin/relativeTime'
+// 国际化
+import 'dayjs/locale/zh-cn'
+const dayjs = require('dayjs');
+
+// 相对时间插件
+dayjs.extend(relativeTime)
+dayjs.locale('zh-cn')
+dayjs().locale('zh-cn').format()
+
+Vue.prototype.dayjs = dayjs; // 可以全局使用dayjs
 Vue.use(Buefy)
 Vue.use(ElementUI);
 
