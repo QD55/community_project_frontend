@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-// 列表
+// 帖子列表
 export function getList(pageNo, size, tab) {
     return request(({
         url: '/post/list',
@@ -8,3 +8,12 @@ export function getList(pageNo, size, tab) {
         params: { pageNo: pageNo, size: size, tab: tab }
     }))
 }
+
+// 发布帖子
+export function post(topic) {
+    return request({
+      url: '/post/create',
+      method: 'post',
+      data: topic
+    })
+  }

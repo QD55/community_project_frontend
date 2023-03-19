@@ -21,6 +21,13 @@ const routes = [
     component: () => import('@/views/auth/Login.vue'),
     meta: { title: '登录'}
   },
+   // 发布帖子
+   {
+    name: 'post-create',
+    path: '/post/create',
+    component: () => import('@/views/post/Create'),
+    meta: { title: '发布帖子', requireAuth: true }
+  },
   {
     path: '/404',
     name: '404',
