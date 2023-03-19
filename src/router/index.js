@@ -28,6 +28,12 @@ const routes = [
     component: () => import('@/views/post/Create'),
     meta: { title: '发布帖子', requireAuth: true }
   },
+  // 查看帖子详情
+  {
+    name: 'post-detail',
+    path: '/post',
+    component: () => import('@/views/post/Detail')
+  },
   {
     path: '/404',
     name: '404',
