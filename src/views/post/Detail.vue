@@ -46,9 +46,10 @@
         </div>
 
         <div class="column">
-            作者信息
+            <!--作者-->
+            <Author v-if="flag" :user="topicUser" />
         </div>
-    </div>
+</div>
 </template>
   
 <script>
@@ -56,8 +57,11 @@ import { getTopic } from '@/api/post'
 import { mapGetters } from 'vuex'
 import Vditor from 'vditor'
 import 'vditor/dist/index.css'
+import Author from '@/views/post/Author'
+
 export default {
     name: 'TopicDetail',
+    components: { Author },
     computed: {
         ...mapGetters([
             'token', 'user'
