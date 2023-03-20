@@ -48,8 +48,11 @@
         <div class="column">
             <!--作者-->
             <Author v-if="flag" :user="topicUser" />
+
+            <!--推荐-->
+            <recommend v-if="flag" :topic-id="topic.id" />
         </div>
-</div>
+    </div>
 </template>
   
 <script>
@@ -58,10 +61,11 @@ import { mapGetters } from 'vuex'
 import Vditor from 'vditor'
 import 'vditor/dist/index.css'
 import Author from '@/views/post/Author'
+import Recommend from './Recommend.vue'
 
 export default {
     name: 'TopicDetail',
-    components: { Author },
+    components: { Author, Recommend },
     computed: {
         ...mapGetters([
             'token', 'user'
