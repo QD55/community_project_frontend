@@ -19,10 +19,10 @@ const routes = [
     path: '/login',
     name: 'login',
     component: () => import('@/views/auth/Login.vue'),
-    meta: { title: '登录'}
+    meta: { title: '登录' }
   },
-   // 发布帖子
-   {
+  // 发布帖子
+  {
     name: 'post-create',
     path: '/post/create',
     component: () => import('@/views/post/Create'),
@@ -51,11 +51,18 @@ const routes = [
       title: '主题列表'
     }
   },
+  // 检索
+  {
+    name: 'search',
+    path: '/search',
+    component: () => import('@/views/Search'),
+    meta: { title: '检索' }
+  },
   {
     path: '/404',
     name: '404',
     component: () => import('@/views/error/404'),
-    meta: {title: '404-NotFound'}
+    meta: { title: '404-NotFound' }
   },
   {
     path: '*',
@@ -65,7 +72,7 @@ const routes = [
 ]
 
 const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push (location) {
+VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch((err) => err)
 }
 
