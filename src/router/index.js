@@ -34,6 +34,15 @@ const routes = [
     path: '/post',
     component: () => import('@/views/post/Detail')
   },
+  // 编辑
+  {
+    name: 'topic-edit',
+    path: '/topic/edit/:id',
+    component: () => import('@/views/post/Edit'),
+    meta: {
+      title: '编辑'
+    }
+  },
   {
     path: '/404',
     name: '404',
@@ -49,7 +58,7 @@ const routes = [
 
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push (location) {
-  return originalPush.call(this, location).catch(err => err)
+  return originalPush.call(this, location).catch((err) => err)
 }
 
 const router = new VueRouter({

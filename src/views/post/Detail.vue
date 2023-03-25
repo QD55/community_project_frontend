@@ -42,30 +42,34 @@
                     </div>
                 </nav>
             </el-card>
-
+            
+            <!-- 评论 -->
+            <lv-comments :slug="topic.id" />
         </div>
 
         <div class="column">
-            <!--作者-->
+            <!-- 作者 -->
             <Author v-if="flag" :user="topicUser" />
 
-            <!--推荐-->
+            <!-- 推荐 -->
             <recommend v-if="flag" :topic-id="topic.id" />
+
         </div>
     </div>
 </template>
   
 <script>
-import { getTopic } from '@/api/post'
+import { getTopic, deleteTopic } from '@/api/post'
 import { mapGetters } from 'vuex'
 import Vditor from 'vditor'
 import 'vditor/dist/index.css'
 import Author from '@/views/post/Author'
 import Recommend from './Recommend.vue'
+import LvComments from '@/components/Comment/Comments'
 
 export default {
     name: 'TopicDetail',
-    components: { Author, Recommend },
+    components: { Author, Recommend, LvComments },
     computed: {
         ...mapGetters([
             'token', 'user'
